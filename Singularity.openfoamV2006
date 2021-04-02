@@ -1,0 +1,19 @@
+Bootstrap: docker
+From: openfoamplus/of_v2006_centos73
+%labels
+Author "Randall Cab White - rcwhite@stanford.edu"
+#########
+#%setup
+#########
+#Downlaod packages
+%post
+%environment
+export IMAGE_NAME="openfoamV2006"
+#export FOAM_INST_DIR=/opt
+#export WM_PROJECT_INST_DIR=$FOAM_INST_DIR
+export WM_PROJECT_DIR=/opt/OpenFOAM/OpenFOAM-v2006
+. /opt/OpenFOAM/setImage_v2006.sh
+export PATH=/opt/OpenFOAM/ThirdParty-v2006/platforms/linux64Gcc/qt-5.9.0/bin:/opt/OpenFOAM/ThirdParty-v2006/platforms/linux64Gcc/ADIOS2-2.4.0/bin:/opt/OpenFOAM/ThirdParty-v2006/platforms/linux64Gcc/ParaView-5.6.3-mpi-py/bin:/opt/OpenFOAM/ThirdParty-v2006/platforms/linux64Gcc/openmpi-1.10.4/bin:/root/OpenFOAM/root-v2006/platforms/linux64GccDPInt32Opt/bin:/opt/OpenFOAM/OpenFOAM-v2006/site/2006/platforms/linux64GccDPInt32Opt/bin:/opt/OpenFOAM/OpenFOAM-v2006/platforms/linux64GccDPInt32Opt/bin:/opt/OpenFOAM/OpenFOAM-v2006/bin:/opt/OpenFOAM/OpenFOAM-v2006/wmake:$PATH
+export LD_LIBRARY_PATH=/opt/OpenFOAM/ThirdParty-v2006/platforms/linux64/zlib-1.2.11/lib:/opt/OpenFOAM/ThirdParty-v2006/platforms/linux64Gcc/qt-5.9.0/lib:/opt/OpenFOAM/ThirdParty-v2006/platforms/linux64Gcc/ParaView-5.6.3-mpi-py/lib/paraview-5.6/plugins:/opt/OpenFOAM/ThirdParty-v2006/platforms/linux64Gcc/ParaView-5.6.3-mpi-py/lib/mesa:/opt/OpenFOAM/ThirdParty-v2006/platforms/linux64Gcc/fftw-3.3.7/lib64:/opt/OpenFOAM/ThirdParty-v2006/platforms/linux64Gcc/CGAL-4.12.2/lib64:/opt/OpenFOAM/ThirdParty-v2006/platforms/linux64Gcc/boost_1_66_0/lib64:/opt/OpenFOAM/ThirdParty-v2006/platforms/linux64Gcc/ADIOS2-2.4.0/lib64:/opt/OpenFOAM/ThirdParty-v2006/platforms/linux64Gcc/mesa-17.1.1/lib64:/opt/OpenFOAM/ThirdParty-v2006/platforms/linux64/llvm-4.0.0/lib64:/opt/OpenFOAM/ThirdParty-v2006/platforms/linux64Gcc/ParaView-5.6.3-mesa-mpi-py/lib:/opt/OpenFOAM/ThirdParty-v2006/platforms/linux64Gcc/ParaView-5.6.3-mpi-py/lib:/opt/OpenFOAM/ThirdParty-v2006/platforms/linux64Gcc/qt-5.9.0/lib:/opt/OpenFOAM/OpenFOAM-v2006/platforms/linux64GccDPInt32Opt/lib/openmpi-1.10.4:/opt/OpenFOAM/ThirdParty-v2006/platforms/linux64GccDPInt32/lib/openmpi-1.10.4:/opt/OpenFOAM/ThirdParty-v2006/platforms/linux64Gcc/openmpi-1.10.4/lib64:/root/OpenFOAM/root-v2006/platforms/linux64GccDPInt32Opt/lib:/opt/OpenFOAM/OpenFOAM-v2006/site/2006/platforms/linux64GccDPInt32Opt/lib:/opt/OpenFOAM/OpenFOAM-v2006/platforms/linux64GccDPInt32Opt/lib:/opt/OpenFOAM/ThirdParty-v2006/platforms/linux64GccDPInt32/lib:/opt/OpenFOAM/OpenFOAM-v2006/platforms/linux64GccDPInt32Opt/lib/dummy:$LD_LIBRARY_PATH
+
+%runscript
